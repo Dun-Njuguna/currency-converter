@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="home.css">
+</head>
+<script type="text/javascript" src="convert.js"></script>
+
+<body onload="convertCurrency">
+
+
+	<div id="table">
+		<h3>Currency Converter</h3>
+
+		<table>
+
+			<tr>
+				<td><input id="amount" type="text" value="1" onkeyup="convertCurrency()"></td>
+				<td id=o ne>
+					<select id="from" onchange="convertCurrency">
+                <option value="BGN">Bulgarian Lev(BGN)</option>
+                <option value="JPY">Japanese Yen(JPY)</option>
+                <option value="USD" selected>US Dollar(USD)</option>
+                <option value="CAD">Canadian Dollar(CAD)</option>
+                </select>
+				</td>
+			</tr>
+
+			<tr>
+				<td><input id="resultfinal" type="text" disabled></td>
+				<td>
+					<select id="to" onchange="convertCurrency()">
+                <option value="BGN">Bulgarian Lev(BGN)</option>
+                <option value="JPY">Japanese Yen(JPY)</option>
+                <option value="USD">US Dollar(USD)</option>
+                <option value="CAD" selected>Canadian Dollar(CAD)</option>
+                </select>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
+</body>
+
+</html>
