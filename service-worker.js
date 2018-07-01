@@ -1,8 +1,7 @@
-// Set a name for the current cache
-var cacheName = 'v3'; 
+const staticcacheName = 'v3'; 
 
 // Default files to always cache
-var cacheFiles = [
+let cacheFiles = [
 	'./',
 	'./home.html',
 	'./convert.js',
@@ -17,7 +16,7 @@ self.addEventListener('install', function(e) {
     e.waitUntil(
 
     	// Open the cache
-	    caches.open(cacheName).then(function(cache) {
+	    caches.open(staticcacheName).then(function(cache) {
 
 	    	// Add all the default files to the cache
 			console.log('[ServiceWorker] Caching cacheFiles');
@@ -33,17 +32,16 @@ self.addEventListener('activate', function(e) {
 
     	// Get all the cache keys (cacheName)
 		caches.keys().then(function(cacheNames) {
-			return Promise.all(cacheNames.map(function(thisCacheName) {
+			return Promise.all(cacheNames.filter(function(cacheName) {
 
-				// If a cached item is saved under a previous cacheName
-				if (thisCacheName !== cacheName) {
-
-					// Delete that cached file
-					console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
-					return caches.delete(thisCacheName);
-				}
-			}));
+				return cacheName.startsWith('v') && cacheName !=staticcacheName;}).map(function(cacheName){
+				return cache.delete(cacheName);
+			})
+												 
+			);
 		})
 	); // end e.waitUntil
 
 });
+
+

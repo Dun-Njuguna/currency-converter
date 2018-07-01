@@ -10,10 +10,10 @@
     xmlhttp.send();
     xmlhttp.onreadystatechange =function(){
          if(xmlhttp.readyState == 4 && xmlhttp.status==200){
-            var result = xmlhttp.responseText;
-            var jsResult = JSON.parse(result);
-			 var val = jsResult[query];
-			var math=document.getElementById("amount").value;
+            let result = xmlhttp.responseText;
+            let jsResult = JSON.parse(result);
+			 let val = jsResult[query];
+			let math=document.getElementById("amount").value;
 			document.getElementById("resultfinal").value=(val * math).toFixed(2);
         
 		 }
@@ -31,3 +31,4 @@ if ('serviceWorker' in navigator) {
     })
 
 }
+

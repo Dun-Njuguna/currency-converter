@@ -1,8 +1,10 @@
+
 #table{
 	width: 400px;
 	height: 150px;
 	border: 2px solid black;
 	margin: 0px auto;
+	
 }
 h3{
 	text-align: center;
